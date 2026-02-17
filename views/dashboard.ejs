@@ -1,0 +1,17 @@
+<%- include('partials/header') %>
+    <h2>Dashboard</h2>
+    <p>Welcome, your role is: <strong>
+            <%= role %>
+        </strong></p>
+
+    <div class="menu">
+        <% if (role==='admin' ) { %>
+            <a href="/maintenance"><button>Maintenance</button></a>
+            <% } %>
+                <a href="/reports"><button>Reports</button></a>
+                <a href="/transactions"><button>Transactions</button></a>
+    </div>
+    </div>
+    </body>
+
+    </html>

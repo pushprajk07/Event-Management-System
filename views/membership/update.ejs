@@ -1,0 +1,75 @@
+<%- include('../partials/header') %>
+    <h2>Update Membership</h2>
+    <% if (error) { %>
+        <p class="error">
+            <%= error %>
+        </p>
+        <% } %>
+            <% if (success) { %>
+                <p style="color: green;">
+                    <%= success %>
+                </p>
+                <% } %>
+
+                    <!-- Search Form -->
+                    <form action="/membership/search" method="POST">
+                        <label for="searchNumber">Enter Membership Number to Search:</label>
+                        <input type="text" id="searchNumber" name="membershipNumber" required>
+                        <button type="submit">Search</button>
+                    </form>
+
+                    <hr>
+
+                    <% if (membership) { %>
+                        <form action="/membership/update" method="POST">
+                            <input type="hidden" name="id" value="<%= membership._id %>">
+
+                            <label>Membership Number:</label>
+                            <input type="text" value="<%= membership.membershipNumber %>" disabled>
+
+                            <label>Name:</label>
+                            <input type="text" name="name" value="<%= membership.name %>" required>
+
+                            <label>Current Start Date:</label>
+                            <input type="date" value="<%= membership.startDate.toISOString().split('T')[0] %>" disabled>
+
+                            <label>Current End Date:</label>
+                            <input type="date" value="<%= membership.endDate.toISOString().split('T')[0] %>" disabled>
+
+                            <label>Status:</label>
+                            <input type="text" value="<%= membership.status %>" disabled>
+
+                            <h3>Update Options</h3>
+
+                            <label>Extend Membership:</label>
+                            <div>
+                                <input type="radio" id="noExtension" name="extension" value="none" checked>
+                                <label for="noExtension">Keep Current Duration</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="extendSixMonths" name="extension" value="6 months">
+                                <label for="extendSixMonths">Extend 6 Months</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="extendOneYear" name="extension" value="1 year">
+                                <label for="extendOneYear">Extend 1 Year</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="extendTwoYears" name="extension" value="2 years">
+                                <label for="extendTwoYears">Extend 2 Years</label>
+                            </div>
+
+                            <label>Cancel Membership:</label>
+                            <div>
+                                <input type="checkbox" id="cancel" name="cancel" value="true">
+                                <label for="cancel">Cancel Membership?</label>
+                            </div>
+
+                            <button type="submit">Update Membership</button>
+                        </form>
+                        <% } %>
+                            <a href="/maintenance">Back to Maintenance</a>
+                            </div>
+                            </body>
+
+                            </html>

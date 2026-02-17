@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management System</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/dashboard">Home</a></li>
+            <li><a href="https://example.com/chart" target="_blank">Chart</a></li> <!-- Chart Link -->
+            <% if (typeof role !== 'undefined' && role === 'admin') { %>
+                <li><a href="/maintenance">Maintenance</a></li>
+            <% } %>
+            <li><a href="/reports">Reports</a></li>
+            <li><a href="/transactions">Transactions</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">

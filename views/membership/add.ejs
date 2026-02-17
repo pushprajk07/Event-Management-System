@@ -1,0 +1,43 @@
+<%- include('../partials/header') %>
+    <h2>Add Membership</h2>
+    <% if (error) { %>
+        <p class="error">
+            <%= error %>
+        </p>
+        <% } %>
+            <% if (success) { %>
+                <p style="color: green;">
+                    <%= success %>
+                </p>
+                <% } %>
+                    <form action="/membership/add" method="POST">
+                        <label for="membershipNumber">Membership Number:</label>
+                        <input type="text" id="membershipNumber" name="membershipNumber" required>
+
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <label for="startDate">Start Date:</label>
+                        <input type="date" id="startDate" name="startDate" required>
+
+                        <label>Membership Duration:</label>
+                        <div>
+                            <input type="radio" id="sixMonths" name="membershipType" value="6 months" checked>
+                            <label for="sixMonths">6 Months</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="oneYear" name="membershipType" value="1 year">
+                            <label for="oneYear">1 Year</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="twoYears" name="membershipType" value="2 years">
+                            <label for="twoYears">2 Years</label>
+                        </div>
+
+                        <button type="submit">Add Membership</button>
+                    </form>
+                    <a href="/maintenance">Back to Maintenance</a>
+                    </div>
+                    </body>
+
+                    </html>
