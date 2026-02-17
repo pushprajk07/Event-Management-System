@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
@@ -9,7 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Connect to MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/eventManagementDB')
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/eventManagementDB')
     .then(() => console.log('MongoDB Connected'))
     .catch(err => console.log(err));
 
